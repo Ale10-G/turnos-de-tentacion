@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turnos de Tentación</title>
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff4f81;
+      margin-bottom: 10px;
+    }
+    .dice {
+      font-size: 60px;
+      cursor: pointer;
+    }
+    .button {
+      background: #ff4f81;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    .challenge {
+      margin-top: 20px;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎲 Turnos de Tentación</h1>
+  <p>Haz clic en el dado para recibir un reto 🔥</p>
+  <div class="dice" onclick="rollDice()">🎲</div>
+  <button class="button" onclick="nextLevel()">Pasar de Nivel</button>
+  <div class="challenge" id="challengeText">Nivel 1: ¡A jugar!</div>
+
+  <script>
+    const levels = {
+      1: [
+        "Besa a tu pareja durante 15 segundos en el lugar que tú elijas (que no sea la boca).",
+        "Susurra algo que te excite de ella/él en el oído, muy despacio.",
+        "Hazle un masaje en los hombros o la espalda durante 2 minutos.",
+        "Mira a tu pareja fijamente a los ojos durante 30 segundos… luego dale un beso suave.",
+        "Dile una fantasía tuya… pero solo una pista.",
+        "Haz un striptease lento (una sola prenda)."
+      ],
+      2: [
+        "Besa el cuello de tu pareja como si no hubiera mañana.",
+        "Usa tu lengua para escribir una palabra sexy sobre su piel (ella/él debe adivinarla).",
+        "Lame lentamente una zona que normalmente ignoras.",
+        "Mete tus manos bajo su ropa… pero no toques directamente zonas íntimas.",
+        "Haz que tu pareja se siente sobre ti y no pueden dejar de tocarse por 2 minutos.",
+        "Muérdele suavemente el lóbulo de la oreja y dile lo que le harías si no hubiera reglas."
+      ],
+      3: [
+        "Elige una parte íntima y dale besos lentos durante 30 segundos.",
+        "Lleva a tu pareja a la pared y haz lo que quieras… durante 60 segundos.",
+        "Usa solo tu boca para excitarle (como prefieras), pero detente justo cuando lo disfrute más.",
+        "Ata suavemente las manos de tu pareja y haz lo que se te ocurra por 2 minutos.",
+        "Susúrrale 3 cosas explícitas que quieres hacerle esta noche.",
+        "Haz una fantasía tuya… en versión resumida."
+      ],
+      4: [
+        "Elige un objeto cercano y úsalo de forma sensual con tu pareja durante 2 minutos.",
+        "Ordena a tu pareja que se quede quieta mientras exploras su cuerpo lentamente.",
+        "Ponte detrás de tu pareja y dale placer sin usar las manos durante 1 minuto.",
+        "Haz una confesión erótica que nunca hayas dicho en voz alta.",
+        "Descríbele paso a paso una fantasía contigo como protagonista.",
+        "Simula una escena de poder durante 2 minutos."
+      ],
+      5: [
+        "Hazle un lap dance intenso durante una canción entera.",
+        "Véndale los ojos con una prenda y sorpréndele.",
+        "Desnúdale lentamente mientras le susurras lo que más te gusta de su cuerpo.",
+        "Haz que te suplique por algo… y decide si se lo das.",
+        "Finge que estás en un lugar público y excítale sin hablar.",
+        "Propón una fantasía conjunta y comiencen a actuarla por 3 minutos."
+      ],
+      6: [
+        "Graba un audio sexy para escuchar después.",
+        "Haz una foto sugerente para ustedes (sin rostros).",
+        "Jueguen al 'Sí o sí': tú propones, tu pareja no puede decir que no.",
+        "Recrea una escena de película erótica improvisando.",
+        "Roleplay rápido durante 2 minutos.",
+        "Terminen con un reto libre: uno propone, el otro acepta o mejora."
+      ]
+    };
+
+    let currentLevel = 1;
+
+    function rollDice() {
+      const num = Math.floor(Math.random() * 6);
+      const challenge = levels[currentLevel][num];
+      document.getElementById("challengeText").textContent = `Nivel ${currentLevel}: ${challenge}`;
+    }
+
+    function nextLevel() {
+      if (currentLevel < 6) {
+        currentLevel++;
+        document.getElementById("challengeText").textContent = `Nivel ${currentLevel}: ¡A jugar!`;
+      } else {
+        document.getElementById("challengeText").textContent = "🔥 Has llegado al nivel máximo del deseo. ¡A disfrutar!";
+      }
+    }
+  </script>
+</body>
+</html>
